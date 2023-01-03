@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Card from "./Component/Card";
+import DropdownButton from "./Component/DropdownButton";
+import InputSearch from "./Component/InputSearch";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="main">
+        <div className="title">
+          <span>Where in the world?</span>
+          <button className="toggleTheme">Dark Mode</button>
+        </div>
+        <div className="searchSection">
+          <InputSearch />
+          <DropdownButton />
+        </div>
+        <div className="content">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
+      </div>
+    </>
   );
 }
 
