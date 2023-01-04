@@ -19,7 +19,7 @@ const DropdownButton = ({ regionList }) => {
   }, []);
 
   return (
-    <div ref={handleClickOutside}>
+    <div>
       <button className="DropdownButton" onClick={toggle}>
         Filter by Region
       </button>
