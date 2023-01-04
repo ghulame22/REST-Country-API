@@ -1,18 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
-const DropdownButton = () => {
+const DropdownButton = ({ regionList }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const regionList = ["Africa", "America", "Asia", "Europe", "Oceania"];
+
+  useEffect(() => {
+    const filterSwitch = (e) => {
+      if (e.path[0].tagName !== "BUTTON") {
+        setIsOpen(isOpen);
+      }
+    };
+
+    document.body.addEventListener("click", filterSwitch);
+
+    return () => {
+      document.body.removeEventListener("click", filterSwitch);
+    };
+  }, []);
 
   return (
-    <div>
+    <div ref={handleClickOutside}>
       <button className="DropdownButton" onClick={toggle}>
         Filter by Region
       </button>
       {isOpen && (
         <div className="list DropdownButton">
-          {regionList.map((item, index) => <div className="listItem" key={index}>{item}</div>)}
+          {regionList.map((item, index) => (
+            <div className="listItem" key={index}>
+              {item}
+            </div>
+          ))}
         </div>
       )}
     </div>

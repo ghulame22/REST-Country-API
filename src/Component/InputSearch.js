@@ -1,15 +1,19 @@
 import React from "react";
 
-function inputSearch() {
+function InputSearch({ search, setSearch, onSubmit }) {
   return (
     <label>
-      <input
-        className="inputSearch"
-        type="text"
-        placeholder="Search for a country"
-      />
+      <form onSubmit={onSubmit}>
+        <input
+          className="inputSearch"
+          type="text"
+          placeholder="Search for a country"
+          value={search}
+          onChange={setSearch}
+        />
+      </form>
     </label>
   );
 }
 
-export default inputSearch;
+export default InputSearch;

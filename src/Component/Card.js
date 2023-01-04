@@ -1,24 +1,27 @@
 import React from "react";
 
-function Card() {
+function Card({ data }) {
   return (
     <div className="card">
-      <div className="flag">Flag</div>
+      <div
+        className="flag"
+        style={{ backgroundImage: `url(${data?.flags?.png})` }}
+      ></div>
       <div className="countryDetail">
         <div>
-          <span>Germany</span>
+          <span>{data?.name?.common}</span>
         </div>
         <div className="countryDetailTitle">
           <span>Population: </span>
-          <span>81,770,900</span>
+          <span>{data.population}</span>
         </div>
         <div className="countryDetailTitle">
           <span>Region: </span>
-          <span>Europe</span>
+          <span>{data.region}</span>
         </div>
         <div className="countryDetailTitle">
           <span>Capital: </span>
-          <span>Berlin</span>
+          <span>{data.capital} </span>
         </div>
       </div>
     </div>

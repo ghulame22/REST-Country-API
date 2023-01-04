@@ -5,7 +5,7 @@
 body {
   font-size: 14px;
   box-sizing: border-box;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }
 .main {
   background: #202d36;
@@ -46,16 +46,19 @@ label:before {
   top: 1rem;
   bottom: 1.2rem;
   width: 1rem;
-  background: url("/rest-countries-api-with-color-theme-switcher-master/design/search-icon-png-9993.png") center / contain no-repeat;
+  background: url("/rest-countries-api-with-color-theme-switcher-master/design/search-icon-png-9993.png")
+    center / contain no-repeat;
 }
 .inputSearch {
   background: #2b3743;
-  padding: 1rem 2.5rem;
+  padding: 0.8rem 2.5rem;
   border: none;
   outline: none;
   cursor: pointer;
   border-radius: 0.5rem;
   min-width: 20rem;
+  color: white;
+  font-size: 18px;
 }
 .DropdownButton {
   background: #2b3743;
@@ -97,33 +100,36 @@ label:before {
   display: flex;
   flex-direction: column;
   height: 20rem;
-  /* width: 20rem; */
+  max-width: 20rem;
   background: #2b3743;
   border-radius: 0.5rem;
 }
 .flag {
-  flex: 1 1 50%;
-  background: #000;
+  flex: 1;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
+  background-position: initial;
+  background-size: contain;
+  background-repeat: round;
 }
 .countryDetail {
   display: flex;
   flex-direction: column;
-  flex: 1 1 50%;
+  flex: 1;
   border-bottom-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
-  padding: 1.5rem;
-  box-sizing: border-box;
+  padding: 1rem 1.5rem 0rem;
+  /* box-sizing: border-box; */
   color: white;
 }
-.countryDetail> :nth-child(1){
+.countryDetail > :nth-child(1) {
   font-weight: 700;
   padding-bottom: 0.5rem;
+  font-size: 20px;
 }
-.countryDetailTitle>:nth-child(1) {
+.countryDetailTitle > :nth-child(1) {
   font-weight: 600;
 }
-.countryDetailTitle>:nth-child(2) {
+.countryDetailTitle > :nth-child(2) {
   color: #b7c1ca;
 }
