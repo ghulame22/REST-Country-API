@@ -21,9 +21,9 @@ body {
   padding: 1rem 2rem;
   font-weight: 800;
 }
-/* .title span {
-  margin-left: 2rem;
-} */
+.title span {
+  cursor: pointer;
+}
 .toggleTheme {
   background: none;
   outline: none;
@@ -35,6 +35,7 @@ body {
   margin: 2rem;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 label {
   position: relative;
@@ -60,6 +61,9 @@ label:before {
   color: white;
   font-size: 18px;
 }
+.DDbtn {
+  position: relative;
+}
 .DropdownButton {
   background: #2b3743;
   border: none;
@@ -70,8 +74,20 @@ label:before {
   position: relative;
   cursor: pointer;
   font-weight: 600;
-  display: flex;
   min-width: 10rem;
+  display: flex;
+}
+.DropdownButton::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid white;
 }
 .list {
   margin-top: 0.5rem;
@@ -81,6 +97,15 @@ label:before {
   flex-direction: column;
   color: #b7c1ca;
   cursor: default;
+  background: #2b3743;
+  border: none;
+  outline: none;
+  color: #b7c1ca;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-weight: 600;
+  display: flex;
+  min-width: 10rem;
 }
 .listItem {
   margin: 2px;
@@ -90,6 +115,9 @@ label:before {
 .content {
   display: grid;
   grid-template-columns: auto auto auto auto;
+  /* overflow: auto */
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  /* grid-template-columns: repeat(auto-fit, 15rem); */
   box-sizing: border-box;
   /* justify-content: space-between; */
   /* flex-wrap: wrap; */
@@ -102,6 +130,7 @@ label:before {
   height: 20rem;
   max-width: 20rem;
   background: #2b3743;
+  cursor: pointer;
   border-radius: 0.5rem;
 }
 .flag {
@@ -109,7 +138,7 @@ label:before {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   background-position: initial;
-  background-size: contain;
+  background-size: cover;
   background-repeat: round;
 }
 .countryDetail {
@@ -132,4 +161,68 @@ label:before {
 }
 .countryDetailTitle > :nth-child(2) {
   color: #b7c1ca;
+}
+.btn {
+  background: #2b3743;
+  border: none;
+  outline: none;
+  color: #b7c1ca;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  position: relative;
+  cursor: pointer;
+  font-weight: 600;
+  min-width: 6rem;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.backBtnIcon {
+  position: absolute;
+  left: 1rem;
+  top: 0rem;
+  bottom: 0.1rem;
+  width: 1rem;
+  background: url("../rest-countries-api-with-color-theme-switcher-master/design/icons8-left-32.png")
+    center / contain no-repeat;
+}
+.bigFlag {
+  min-height: 20rem;
+  background: green;
+}
+.detailedComponent {
+  min-height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 2rem 3rem;
+  font-size: 1rem;
+  color: white;
+}
+.counntryName {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+.subdetailedComponent {
+  display: grid;
+  /* grid-template-columns: auto auto; */
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 14rem));
+  gap: 1rem;
+}
+.featureBtn {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0rem ;
+  flex-wrap: wrap;
+}
+.featureBtn > span {
+  margin-right: 1rem;
+  font-weight: 600;
+}
+.featureBtnModle {
+  padding: 1rem 0rem ;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }

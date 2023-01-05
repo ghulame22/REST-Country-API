@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
-const DropdownButton = ({ regionList }) => {
+const DropdownButton = ({ regionList, regionFilter }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
 
   useEffect(() => {
     const filterSwitch = (e) => {
@@ -19,14 +20,14 @@ const DropdownButton = ({ regionList }) => {
   }, []);
 
   return (
-    <div>
+    <div className="DDbtn">
       <button className="DropdownButton" onClick={toggle}>
         Filter by Region
       </button>
       {isOpen && (
-        <div className="list DropdownButton">
+        <div className="list">
           {regionList.map((item, index) => (
-            <div className="listItem" key={index}>
+            <div className="listItem" key={index} onClick={()=>regionFilter(index)}>
               {item}
             </div>
           ))}
