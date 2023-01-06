@@ -1,8 +1,8 @@
 import React from "react";
 
-function Card({ data , cardPage}) {
+function Card({ data , cardPage, index}) {
   return (
-    <div className="card" onClick={cardPage}>
+    <div className="card" onClick={() => cardPage(index)}>
       <div
         className="flag"
         style={{ backgroundImage: `url(${data?.flags?.png})` }}

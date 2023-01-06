@@ -35,7 +35,8 @@ body {
   margin: 2rem;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  /* overflow: hidden; */
 }
 label {
   position: relative;
@@ -57,9 +58,10 @@ label:before {
   outline: none;
   cursor: pointer;
   border-radius: 0.5rem;
-  min-width: 20rem;
+  width: 22rem;
   color: white;
   font-size: 18px;
+  /* margin-right: 2rem; */
 }
 .DDbtn {
   position: relative;
@@ -196,7 +198,7 @@ label:before {
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 2rem 3rem;
+  padding: 2rem 0rem;
   font-size: 1rem;
   color: white;
 }
@@ -213,7 +215,7 @@ label:before {
 .featureBtn {
   display: flex;
   align-items: center;
-  padding: 1rem 0rem ;
+  padding: 1rem 0rem;
   flex-wrap: wrap;
 }
 .featureBtn > span {
@@ -221,8 +223,31 @@ label:before {
   font-weight: 600;
 }
 .featureBtnModle {
-  padding: 1rem 0rem ;
+  padding: 1rem 0rem;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 680px) {
+  .searchSection {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .DropdownButton {
+    margin-top: 1rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .inputSearch {
+    width: 11rem;
+  }
+}
+@media screen and (max-width: 280px) {
+  .inputSearch {
+    width: 8.5rem;
+  }
+  .card {
+    max-width: 13.5rem;
+  }
 }

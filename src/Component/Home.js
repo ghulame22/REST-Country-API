@@ -20,8 +20,16 @@ function Home() {
   };
 
   const navigate = useNavigate();
-  const cardPage = () => {
-    navigate("/CardPage");
+
+  const cardPage = (index) => {
+    // console.log("HomePage", data[index].capital);
+    // let obj = {};
+    // data.map((item) => {
+    //   if(item.name.nativeName)
+    //   console.log("Kagaj",Object.values(item.name.nativeName)[0].common)
+    // });
+    // console.log("Teja",Object.entries(obj));
+    navigate("/CardPage", { state: { data: data[index] } });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +37,7 @@ function Home() {
       axios
         .get(`https://restcountries.com/v3.1/name/${search}`)
         .then((res) => {
-          setData(res.data[0]);
+          setData(res.data);
         })
         .catch((err) => {
           alert("Enter a valid name");
@@ -69,7 +77,7 @@ function Home() {
         <div className="content">
           {(Array.isArray(data) &&
             data?.map((item, index) => (
-              <Card data={item} key={index} cardPage={cardPage} />
+              <Card data={item} key={index} cardPage={cardPage} index={index} />
             ))) || <Card data={data} />}
         </div>
       </div>
