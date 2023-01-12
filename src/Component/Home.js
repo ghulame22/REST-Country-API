@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Card from "./Card";
-import DropdownButton from "./DropdownButton";
-import InputSearch from "./InputSearch";
+// import Card from "./Card";
+// import DropdownButton from "./DropdownButton";
+// import InputSearch from "./InputSearch";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import { Dark } from "./Dark";
 import { Light } from "./Light";
 
