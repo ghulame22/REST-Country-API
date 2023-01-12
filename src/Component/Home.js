@@ -85,7 +85,7 @@ function Home() {
   return (
     <>
       <div className="main" style={{ background: `${thisTheme.mainBg}` }}>
-        <Navbar toggleTheme={toggleTheme} thisTheme={thisTheme} />
+        {/* <Navbar toggleTheme={toggleTheme} thisTheme={thisTheme} /> */}
         <div className="searchSection">
           {/* <InputSearch
             search={search}
