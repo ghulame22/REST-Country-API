@@ -1,24 +1,42 @@
 import React from "react";
+import axios from "axios";
 import Navbar from "./Navbar";
 import { useNavigate, useLocation } from "react-router-dom";
 
-function CardPage({ index }) {
+function CardPage({ thisTheme }) {
   const navigate = useNavigate();
   const { state } = useLocation();
+
   console.log("CardPage", state.data);
-  console.log("currency", state.data.currencies);
+  let borderArr = state?.data?.borders;
+  // console.log("thik hai", borderArr);
+
+  const borderCountryNavigate = (item) => {
+    axios
+      .get(`https://restcountries.com/v3.1/alpha/${item}`)
+      .then((res) => {
+        navigate("/CardPage", { state: { data: res.data[0] } });
+      })
+      .catch((err) => {
+        alert("Enter a valid name");
+        // console.log(err);
+      });
+  };
 
   return (
-    <div className="main">
+    <div className="main" style={{ background: `${thisTheme?.mainBg}` }}>
       <Navbar />
-      <div className="searchSection">
+      <div className="searchSection" id="searchSection2">
         <div className="btn" id="backBtn" onClick={() => navigate(-1)}>
           <div className="backBtnIcon"></div>
           <span>Back</span>
         </div>
       </div>
       <div className="content">
-        <div className="bigFlag">a</div>
+        <div
+          className="bigFlag"
+          style={{ backgroundImage: `url(${state?.data?.flags?.png})` }}
+        ></div>
         <div className="detailedComponent">
           <div className="counntryName">{state?.data?.name?.common}</div>
           <div className="subdetailedComponent">
@@ -28,7 +46,7 @@ function CardPage({ index }) {
                 <span>
                   {state?.data?.name?.nativeName
                     ? Object.values(state?.data?.name?.nativeName)[0].common
-                    : state?.data?.name}{" "}
+                    : state?.data?.name}
                 </span>
               </div>
               <div className="countryDetailTitle">
@@ -55,24 +73,32 @@ function CardPage({ index }) {
               </div>
               <div className="countryDetailTitle">
                 <span>Currencies: </span>
-                {/* <span>Euro {Object.values(state?.data?.currencies[0].name)}</span> */}
+                <span>
+                  {state?.data?.currencies
+                    ? Object.values(state?.data?.currencies)[0].name
+                    : state?.data?.currencies}
+                </span>
               </div>
               <div className="countryDetailTitle">
                 <span>Laguages: </span>
-                <span>
-                  {Object.values(state?.data?.languages)[0] + " " +
-                    Object.values(state?.data?.languages)[1] + " " +
-                    Object.values(state?.data?.languages)[2]}  
-                </span>
+                <span>{Object.values(state?.data?.languages).join(", ")}</span>
               </div>
             </div>
           </div>
           <div className="featureBtn">
             <span>Border Countries:</span>
             <div className="featureBtnModle">
-              <button className="btn">France</button>
-              <button className="btn">Germany</button>
-              <button className="btn">Netherlands</button>
+              {state?.data?.borders
+                ? borderArr.map((item, index) => (
+                    <button
+                      className="btn"
+                      key={index}
+                      onClick={() => borderCountryNavigate(item)}
+                    >
+                      {item}
+                    </button>
+                  ))
+                : "No Border Countries"}
             </div>
           </div>
         </div>

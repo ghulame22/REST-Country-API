@@ -1,13 +1,28 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ toggleTheme, thisTheme }) {
   const navigate = useNavigate();
 
   return (
-    <div className="title">
+    <div
+      className="title"
+      style={{
+        background: `${thisTheme?.titleBg}`,
+        color: `${thisTheme?.textColor}`,
+        boxShadow: `${thisTheme?.shadow}`,
+      }}
+    >
       <span onClick={() => navigate("/")}>Where in the world?</span>
-      <button className="toggleTheme">Dark Mode</button>
+      <button
+        className="toggleTheme"
+        style={{
+          color: `${thisTheme?.textColor}`,
+        }}
+        onClick={toggleTheme}
+      >
+        Dark Mode
+      </button>
     </div>
   );
 }

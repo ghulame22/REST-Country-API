@@ -189,8 +189,9 @@ label:before {
     center / contain no-repeat;
 }
 .bigFlag {
+  background-size: contain;
+  background-repeat: no-repeat;
   min-height: 20rem;
-  background: green;
 }
 .detailedComponent {
   min-height: 20rem;
@@ -209,7 +210,7 @@ label:before {
 .subdetailedComponent {
   display: grid;
   /* grid-template-columns: auto auto; */
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 14rem));
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 15rem));
   gap: 1rem;
 }
 .featureBtn {
@@ -234,13 +235,25 @@ label:before {
     flex-direction: column;
     justify-content: space-between;
   }
+  #searchSection2 {
+    flex-direction: row;
+  }
   .DropdownButton {
     margin-top: 1rem;
   }
+  .content {
+    gap: 1rem;
+  }
+  /* .bigFlag {
+  min-height: 20rem;
+  } */
 }
 @media screen and (max-width: 500px) {
   .inputSearch {
     width: 11rem;
+  }
+  .bigFlag {
+    min-height: 9rem;
   }
 }
 @media screen and (max-width: 280px) {
@@ -249,5 +262,8 @@ label:before {
   }
   .card {
     max-width: 13.5rem;
+  }
+  .bigFlag {
+    min-height: 9rem;
   }
 }
