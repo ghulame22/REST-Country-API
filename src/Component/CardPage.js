@@ -89,7 +89,7 @@ function CardPage({ thisTheme }) {
             <span>Border Countries:</span>
             <div className="featureBtnModle">
               {state?.data?.borders
-                ? borderArr.map((item, index) => (
+                ? borderArr?.map((item, index) => (
                     <button
                       className="btn"
                       key={index}
