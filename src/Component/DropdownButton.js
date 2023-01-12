@@ -40,7 +40,7 @@ const DropdownButton = ({ regionList, regionFilter, thisTheme }) => {
             color: `${thisTheme?.textColor}`,
           }}
         >
-          {regionList.map((item, index) => (
+          {regionList?.map((item, index) => (
             <div
               className="listItem"
               key={index}
