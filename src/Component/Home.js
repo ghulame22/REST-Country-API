@@ -85,20 +85,20 @@ function Home() {
   return (
     <>
       <div className="main" style={{ background: `${thisTheme.mainBg}` }}>
-        {/* <Navbar toggleTheme={toggleTheme} thisTheme={thisTheme} />
+        <Navbar toggleTheme={toggleTheme} thisTheme={thisTheme} />
         <div className="searchSection">
-          <InputSearch
+          {/* <InputSearch
             search={search}
             setSearch={(e) => setSearch(e.target.value)}
             onSubmit={handleSubmit}
             thisTheme={thisTheme}
-          />
-          <DropdownButton
+          /> */}
+          {/* <DropdownButton
             regionList={regionList}
             regionFilter={regionFilter}
             thisTheme={thisTheme}
-          />
-        </div> */}
+          /> */}
+        </div>
         {/* <div className="content">
           {(Array.isArray(data) &&
             data?.map((item, index) => (
