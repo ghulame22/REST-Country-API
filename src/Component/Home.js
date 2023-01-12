@@ -85,7 +85,7 @@ function Home() {
   return (
     <>
       <div className="main" style={{ background: `${thisTheme.mainBg}` }}>
-        <Navbar toggleTheme={toggleTheme} thisTheme={thisTheme} />
+        {/* <Navbar toggleTheme={toggleTheme} thisTheme={thisTheme} />
         <div className="searchSection">
           <InputSearch
             search={search}
@@ -98,13 +98,13 @@ function Home() {
             regionFilter={regionFilter}
             thisTheme={thisTheme}
           />
-        </div>
-        <div className="content">
+        </div> */}
+        {/* <div className="content">
           {(Array.isArray(data) &&
             data?.map((item, index) => (
               <Card data={item} key={index} cardPage={cardPage} index={index} thisTheme={thisTheme} />
             ))) || <Card data={data} thisTheme={thisTheme} />}
-        </div>
+        </div> */}
       </div>
     </>
   );
