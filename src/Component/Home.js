@@ -10,7 +10,7 @@ import { Dark } from "./Dark";
 import { Light } from "./Light";
 import Layout from "./Layout/Layout";
 
-function Home({ thisTheme }) {
+function Home({thisTheme}) {
   const [data, setData] = useState({});
   const [originalData, setOriginalData] = useState({});
   const [regionList, setRegionList] = useState([]);
@@ -71,18 +71,13 @@ function Home({ thisTheme }) {
     axios
       .get(`https://restcountries.com/v3.1/all`)
       .then((res) => {
-        if (res.status === 200) {
-          setData(res.data);
-          setOriginalData(res.data);
-          let obj = {};
-          res.data.map((item) => {
-            obj[item.region] = item.region;
-          });
-          setRegionList(Object.keys(obj));
-        }
-        else if(res.status === 404){
-          console.log("Please wait");
-        }
+        setData(res.data);
+        setOriginalData(res.data);
+        let obj = {};
+        res.data.map((item) => {
+          obj[item.region] = item.region;
+        });
+        setRegionList(Object.keys(obj));
       })
 
       .catch((err) => {
