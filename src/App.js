@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Component/Home";
-// import CardPage from "./Component/CardPage";
+import CardPage from "./Component/CardPage";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Router>
         <Routes>
         <Route exact path="/" element={<Home />} />
-        {/* <Route exact path="/CardPage" element={<CardPage />} /> */}
+        <Route exact path="/CardPage" element={<CardPage />} />
         </Routes>
       </Router>
     </>

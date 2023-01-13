@@ -5,16 +5,14 @@ const DropdownButton = ({ regionList, regionFilter, thisTheme }) => {
   const toggle = () => setIsOpen(!isOpen);
 
   useEffect(() => {
-    const filterSwitch = (e) => {
-      if (e.path[0].tagName !== "BUTTON") {
-        setIsOpen(isOpen);
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".DropdownButton")) {
+        setIsOpen(false);
       }
     };
-
-    document.body.addEventListener("click", filterSwitch);
-
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.body.removeEventListener("click", filterSwitch);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
